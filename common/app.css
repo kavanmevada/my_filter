@@ -1,0 +1,82 @@
+/* -- cleanup -- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Regular-font';
+}
+a {
+  text-decoration: none;
+  color: #000000;
+}
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+p {
+  margin: 0;
+}
+/*--------------------------------------------*/
+
+
+/* Gap */
+.gap {
+  display: block;
+  clear: both;
+  height: 60px;
+  width: 100%;
+}
+
+.row {
+  display: block;
+  width: 100%;
+}
+.max-page {
+  display: table;
+  width: 700px;
+  margin: 0 auto;
+  padding: 0 15px;
+  height: auto;
+}
+.line-break {
+    border-bottom: 1px solid #dfdfdf;
+    width: 70%;
+    margin: 0 auto;
+}
+
+
+
+/* ------- colums -------- */
+/*  SECTIONS  */
+.col-section {
+  display: block;
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	padding: 15px 0;
+}
+
+/*  GRID OF THREE  */
+.col-1 {
+	width: 100%;
+}
+.col-2 {
+	width: 50%;
+}
+.col-3 {
+	width: 32.2%;
+}
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 768px) {
+  .max-page { width: 100%;padding: 0;}
+	.col-1 , .col-2 , .col-3  { width: 100%; }
+}
+/*---------------------------------------------*/

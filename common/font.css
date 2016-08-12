@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'black-font';
+  src: url('font/SourceCodePro-Black.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'bold-font';
+  src: url('font/SourceCodePro-Bold.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Extralight-font';
+  src: url('font/SourceCodePro-Extralight.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Light-font';
+  src: url('font/SourceCodePro-Light.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Medium-font';
+  src: url('font/SourceCodePro-Medium.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Regular-font';
+  src: url('font/SourceCodePro-Regular.ttf')  format('truetype') /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Semibold-font';
+  src: url('font/SourceCodePro-Semibold.ttf')  format('truetype') /* Safari, Android, iOS */
+}
