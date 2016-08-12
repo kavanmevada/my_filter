@@ -1,0 +1,14 @@
+.portfolio-content {
+    overflow: hidden;
+}
+
+.portfolio-item {
+    width: 50%;
+    transition: all 0.5s;
+}
+
+.masonry {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}

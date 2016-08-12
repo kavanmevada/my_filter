@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>My Portfolio</title>
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Bootstrap 3 responsive centered columns">
+    <!-- include bootstrap -->
+
+    <link rel="stylesheet" href="common/font.css" >
+    <link rel="stylesheet" href="common/app.css" >
+    <link rel="stylesheet" href="common/header_style.css" >
+    <link rel="stylesheet" href="buttons.css" >
+
+    <link rel="stylesheet" href="container.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="filter.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="stylesheet.css" media="screen" title="no title" charset="utf-8">
+
+</head>
+<body>
+
+
+<div class="container container-max effect1">
+<span class="gap"></span>
+<h3>MY PORTFOLIO</h3>
+<div class="divider">
+	<img src="img/wave.png" alt="">
+</div>
+<span class="gap"></span>
+    <div class="row">
+        <div class="col col-3">
+          <ul class="portfolio-sort">
+              <li class="btn btn_style_1" href="#" data-cat="all"><a href="#">All</a></li>
+              <li class="btn btn_style_1" href="#" data-cat="a"><a href="#">Typography</a></li>
+              <li class="btn btn_style_1" href="#" data-cat="b"><a href="#">Web</a></li>
+              <li class="btn btn_style_1" href="#" data-cat="c"><a href="#">App</a></li>
+          </ul>
+        </div>
+        <div class="col col-8">
+          <div class="portfolio-content masonry">
+              <div class="portfolio-item" data-cat="c">
+                <div class="thmb-item">
+                  <img src="img/1.jpg" alt="" />
+                </div>
+              </div>
+              <div class="portfolio-item" data-cat="b">
+                <div class="thmb-item">
+                  <img src="img/2.jpg" alt="" />
+                </div>
+              </div>
+              <div class="portfolio-item" data-cat="c">
+                <div class="thmb-item">
+                  <img src="img/3.jpg" alt="" />
+                </div>
+              </div>
+              <div class="portfolio-item" data-cat="c">
+                <div class="thmb-item">
+                  <img src="img/4.jpg" alt="" />
+                </div>
+              </div>
+              <div class="portfolio-item" data-cat="b">
+                <div class="thmb-item">
+                  <img src="img/5.jpg" alt="" />
+                </div>
+              </div>
+              <div class="portfolio-item" data-cat="a">
+                <div class="thmb-item">
+                  <img src="img/6.jpg" alt="" />
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+<script src="flex_masonry.js"></script><!-- Must be above filter, filter has this funtion -->
+<script src="flex_filter.2.0.js" ></script>
+<script type="text/javascript">
+  flex_masonry(".masonry");
+</script>
+</body>
+</html>

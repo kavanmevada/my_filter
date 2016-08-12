@@ -1,0 +1,40 @@
+dd {
+    display: block;
+    letter-spacing: 0.8px;
+    margin: 0px 35px 0px 0px;
+}
+
+.btn_style_1 > a {
+    font-size: 14px;
+    color: #151515;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 0.3em;
+    font-weight: 400;
+    padding-bottom: 4px;
+    font-family: sans-serif;
+    text-decoration: none;
+
+}
+
+.btn_style_1 > a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: #1aa97f;
+    bottom: 0;
+    left: 0;
+    transform: scale(0, 1);
+
+    transition: all 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn_style_1.active > a {
+    color: #1aa97f;
+}
+
+.btn_style_1.active > a:after {
+    transform: scale(1, 1);
+}
