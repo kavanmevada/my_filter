@@ -1,8 +1,11 @@
-function ready(fn){var d=document;(d.readyState=='loading')?d.addEventListener('DOMContentLoaded',fn):fn();}
-ready(function(){
-    //some code
+  function loadSprite(src, callback) {
+      var sprite = new Image();
+      sprite.onload = callback;
+      sprite.src = src;
+  }
+  loadSprite('img/6.jpg', function() {
     flex_masonry();
-});
+  });
 function flex_masonry() {
   var element = document.querySelector('.masonry');
   var gutter_h = 0;
