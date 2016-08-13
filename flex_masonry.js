@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', flex_masonry(), false);
 function flex_masonry() {
-  var element = document.querySelector(flex_ele);
+  var element = document.querySelector('.masonry');
   var gutter_h = 0;
 
   Array.max = function(array){
