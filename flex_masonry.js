@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', flex_masonry(), false);
+window.bind("load", flex_masonry());
 function flex_masonry() {
   var element = document.querySelector('.masonry');
   var gutter_h = 0;
