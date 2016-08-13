@@ -1,11 +1,13 @@
+  imgs = document.querySelectorAll('img');
   function loadSprite(src, callback) {
       var sprite = new Image();
       sprite.onload = callback;
       sprite.src = src;
   }
-  loadSprite('img/6.jpg', function() {
-    flex_masonry();
-  });
+  //loadSprite('img/6.jpg',flex_masonry());
+  for (var i = 0; i < imgs.length; i++) {
+    loadSprite(imgs[i].getAttribute('src'), flex_masonry());
+  }
 function flex_masonry() {
   var element = document.querySelector('.masonry');
   var gutter_h = 0;
