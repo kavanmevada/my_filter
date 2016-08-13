@@ -1,4 +1,16 @@
-window.bind("load", flex_masonry());
+  function ready(fn) {
+    if (document.readyState != 'loading'){
+      fn();
+    } else if (document.addEventListener) {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      document.attachEvent('onreadystatechange', function() {
+        if (document.readyState != 'loading')
+          fn();
+      });
+    }
+  }
+  ready(flex_masonry());
 function flex_masonry() {
   var element = document.querySelector('.masonry');
   var gutter_h = 0;
