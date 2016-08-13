@@ -7,6 +7,7 @@
   //loadSprite('img/6.jpg',flex_masonry());
   for (var i = 0; i < imgs.length; i++) {
     loadSprite(imgs[i].getAttribute('src'), flex_masonry());
+    console.log(imgs[i].getAttribute('src'));
   }
 function flex_masonry() {
   var element = document.querySelector('.masonry');
