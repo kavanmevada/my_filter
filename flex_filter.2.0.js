@@ -68,5 +68,5 @@
         }
     });
   }
-
+console.log(document.readyState);
 })();
