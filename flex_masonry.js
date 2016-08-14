@@ -1,17 +1,8 @@
-  imgs = document.querySelectorAll('img');
-  function loadSprite(src, callback) {
-      var sprite = new Image();
-      sprite.onload = callback;
-      sprite.src = src;
-  }
-  //loadSprite('img/6.jpg',flex_masonry());
-  for (var i = 0; i < imgs.length; i++) {
-    loadSprite(imgs[i].getAttribute('src'), flex_masonry());
-    loadSprite(imgs[i].getAttribute('src'), console.log(imgs[i].getAttribute('src')));
-  }
-function flex_masonry() {
-  var element = document.querySelector('.masonry');
-  var gutter_h = 0;
+flex_masonry = function (flex_ele) {
+  var element = document.querySelector(flex_ele);
+  element.style.position = "relative";
+  var gutter_h = 20;
+  //var gutter_v = 20;
 
   Array.max = function(array){
  	    return Math.max.apply(Math, array);
@@ -20,31 +11,24 @@ function flex_masonry() {
   flex_magic = {
 
   render: function() {
-        var child_e = new Array();
+      //var child_e = new Array();
 
-        var kk = document.getElementsByClassName("masonry")[0].children;
+      var kk = document.querySelectorAll(flex_ele)[0].children;
 
-        //Converting HTMLCollection to array
-        var child_ee = [].slice.call(kk);
-
-        //Remove elements from arry which are display:hidden;
-        var k = 0;
-        for (var i = 0; i < child_ee.length; i++) {
-          if (child_ee[i].style.display != "none") {
-            //child_e.splice(i, 1);
-            child_e[k] = child_ee[i];
-            k++;
-          }
+      var child_e = [].slice.call(kk);
+      //console.log(array);
+      for (var i = 0; i < child_e.length; i++) {
+        if (child_e[i].style.display != "none") {
+          child_e.slice(i, 1);
         }
-        //console.log(child_e);
-        var childInfo = childElementInfo(child_e[0]);
-        var width = childInfo['width'];
-        //console.log(width);
-        var columns = childInfo['num'];
-        column_matrix = initialRange(columns);
+      }
 
 
-
+      var childInfo = childElementInfo(child_e[0]);
+      var width = childInfo['width'];
+      //console.log(width);
+      var columns = childInfo['num'];
+      column_matrix = initialRange(columns);
 
       for (var i = 0, len = child_e.length; i < len; i++) {
         var height = child_e[i].clientHeight;
@@ -62,12 +46,14 @@ function flex_masonry() {
         child_e[i].style.left = leftPos + 'px';
         child_e[i].style.marginRight = childInfo['gutter_v'] + 'px';
 
-        column_matrix[addToCol] = column_matrix[addToCol]+height+gutter_h;
+        if (height != 0) {
+          column_matrix[addToCol] = column_matrix[addToCol]+height+gutter_h;
+        }
       }
 
       for (var i = 0; i < child_e.length; i++) {
         child_e[i].style.overflow = 'hidden';
-        //child_e[i].style.zoom = '1';
+        child_e[i].style.zoom = '1';
       }
 
       //element.style.position = "relative";
@@ -76,25 +62,15 @@ function flex_masonry() {
 
   };
 
-  var myEfficientFn = debounce(function() {
-  	// All the taxing stuff you do
-    flex_magic.render();
-    console.log('kavan');
-  }, 700);
-
-  window.addEventListener('resize', myEfficientFn);
-
-  //window.addEventListener('resize', flex_magic.render);
-  //element.classList.add('sm-loaded');
+  window.addEventListener('resize', flex_magic.render);
+  element.classList.add('sm-loaded');
   flex_magic.render();
 
   function childElementInfo(elem) {
  		var width_e = elem.offsetWidth;
  		var parentWidth = elem.parentElement.offsetWidth;
 
-    var nums_cols = (parentWidth+1) / (width_e);
-    var num = Math.round(nums_cols); // Here +(gutter_v/2)
-    //var gutter_v = 20;
+    var num = Math.floor((parentWidth+1) / (width_e)); // Here +(gutter_v/2)
     var gutter_v = (parentWidth-(width_e*num))/(num+1);
     if(gutter_v<=0) { var gutter_v = 0; }
     //console.log(gutter_v);
@@ -118,19 +94,35 @@ function flex_masonry() {
  		return arry.indexOf(minValue,arry);
  	}
 
-  function debounce(func, wait, immediate) {
-  	var timeout;
-  	return function() {
-  		var context = this, args = arguments;
-  		var later = function() {
-  			timeout = null;
-  			if (!immediate) func.apply(context, args);
-  		};
-  		var callNow = immediate && !timeout;
-  		clearTimeout(timeout);
-  		timeout = setTimeout(later, wait);
-  		if (callNow) func.apply(context, args);
-  	};
-  };
+}
+
+
+function imag_init() {
+  var element = document.querySelector('.masonry');
+  //var $element = $(element);
+  var images = document.querySelectorAll('img');
+  console.log(images);
+  //var $images = $(images);
+  var numImages = images.length;
+  var imgLoadCount = 0;
+
+
+  if ( images.length > 0 )
+  element.classList.add('sm-images-waiting');
+  element.classList.remove('sm-images-loaded');
+
+  for (var i = 0; i < images.length; i++) {
+    images[i].addEventListener('load', function(i) {
+    imgLoadCount++;
+
+    if ( imgLoadCount == numImages ) {
+    flex_masonry(".masonry");
+    element.classList.remove('sm-images-waiting');
+    element.classList.add('sm-images-loaded');
+    }
+    });
+  }
 
 }
+
+imag_init();
