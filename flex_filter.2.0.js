@@ -1,4 +1,4 @@
-(function () {
+document.addEventListener('DOMContentLoaded',(function () {
   //Global Variables
   var items = new Array();
   var rej_items = new Array();
@@ -6,7 +6,7 @@
   var myObject = {
       elements: document.querySelector('.portfolio-content').children,
       filters: document.querySelector('.portfolio-sort').children,
-      custom_funtion: flex_masonry(".masonry")
+      custom_funtion: flex_masonry()
     };
 
   // code
@@ -19,14 +19,14 @@
       for (var i = 0; i < rej_items.length; i++) {
         rej_items[i].style.display = 'none';
       }
-      flex_masonry(".masonry"); // Custom function -------------------
+      flex_masonry(); // Custom function -------------------
     },
 
     showAll: function () {
       for (var i = 0; i < myObject.elements.length; i++) {
         myObject.elements[i].style.display = 'block';
       }
-      flex_masonry(".masonry"); // Custom function -------------------
+      flex_masonry(); // Custom function -------------------
     },
 
     activate_element: function (ele) {
@@ -68,5 +68,4 @@
         }
     });
   }
-console.log(document.readyState);
-})();
+})() , false);
