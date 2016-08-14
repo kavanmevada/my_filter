@@ -144,6 +144,7 @@ function flex_masonry() {
 
       if ( imgLoadCount == numImages ) {
       //console.log('kavan');
+      flex_masonry();
       element.classList.remove('sm-images-waiting');
       element.classList.add('sm-images-loaded');
       }
